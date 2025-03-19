@@ -15,7 +15,7 @@ This is a web-based **Student Result Management System** that allows administrat
 Ensure you have the following installed:
 - Python (3.x recommended)
 - Flask (if used as the backend framework)
-- SQLite or MySQL (for database)
+- MySQL (for database)
 
 ### Setup Instructions
 1. Clone the repository:
