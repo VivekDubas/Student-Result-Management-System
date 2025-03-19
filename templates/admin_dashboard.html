@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/admdshstyle.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome, {{ admin_name }}</h1>
+
+        <div class="option">
+            <a href="{{ url_for('add_marks1') }}">Add Marks for Students</a> 
+        </div>
+        
+        <div class="option">
+            <a href="{{ url_for('add_marks1') }}">Delete Student Marks</a>
+        </div>
+        
+        <div class="option">
+            <a href="{{ url_for('student_details1') }}">View Data of All Students</a>
+        </div>
+        
+        <div class="option">
+            <a href="{{ url_for('message_teacher') }}">View Messages by Students</a>
+        </div>
+        
+    </div>
+</body>
+
+</html>

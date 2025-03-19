@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Result Management System - Student Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stdlogstyle.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to the Student Result Management System</h1>
+
+        <!-- Student Login Form -->
+        <div class="form-group">
+            <h2>Student Login</h2>
+            <form action="/student_login" method="post">
+                <label for="student_id">Student ID:</label>
+                <input type="text" name="student_id" required>
+                <br><br>
+                <label for="student_password">Password:</label>
+                <input type="password" name="student_password" required>
+                <br><br>
+                <input type="submit" value="Login">
+            </form>
+
+        </div>
+    </div>
+    <script>
+        document.querySelector("form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent actual form submission
+    
+            var student_id = document.querySelector("input[name='student_id']").value;
+            var password = document.querySelector("input[name='student_password']").value;
+    
+            fetch("http://127.0.0.1:5000/student_login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ student_id: student_id, student_password: password }) 
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    window.location.href = "/student_dashboard"; // Redirect to Student Dashboard
+                } else {
+                    alert("Invalid credentials! Try again.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    </script>
+    
+</body>
+
+</html>

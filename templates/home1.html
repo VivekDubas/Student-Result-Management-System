@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Management System</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/homestyle.css') }}">
+</head>
+
+<body>
+    <header>
+        <img src="https://png.pngtree.com/png-clipart/20211017/original/pngtree-school-logo-png-image_6851480.png"
+            alt="School Logo">
+        <h1>Result Management System</h1>
+    </header>
+    <nav>
+        <div class="button-container">
+            <a href="#">Home</a>
+            <div class="dropdown">
+                <button onclick="toggleAdminDropdown()" class="dropbtn">Admin</button>
+                <div id="admin-menu" class="dropdown-content">
+                    <a href="{{ url_for('admin_login') }}">Admin Login</a> 
+                </div>
+            </div>
+            <div class="dropdown">
+                <button onclick="toggleStudentDropdown()" class="dropbtn">Student</button>
+                <div id="student-menu" class="dropdown-content">
+                    <a href="{{ url_for('student_login') }}">Student Login</a>
+                    <a href="{{ url_for('message_student') }}">Message</a> 
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="container">
+        <!-- Content goes here -->
+    </section>
+
+    <script>
+        function toggleAdminDropdown() {
+            var adminMenu = document.getElementById("admin-menu");
+            var studentMenu = document.getElementById("student-menu");
+
+            studentMenu.style.display = "none";
+
+            if (adminMenu.style.display === "none") {
+                adminMenu.style.display = "block";
+            } else {
+                adminMenu.style.display = "none";
+            }
+        }
+
+        function toggleStudentDropdown() {
+            var adminMenu = document.getElementById("admin-menu");
+            var studentMenu = document.getElementById("student-menu");
+
+            adminMenu.style.display = "none";
+
+            if (studentMenu.style.display === "none") {
+                studentMenu.style.display = "block";
+            } else {
+                studentMenu.style.display = "none";
+            }
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.style.display === "block") {
+                        openDropdown.style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

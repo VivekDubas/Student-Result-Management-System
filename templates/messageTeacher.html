@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Inbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-row {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        #messages {
+            margin-top: 20px;
+        }
+
+        #messages p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Teacher Inbox</h1>
+    </header>
+
+    <div class="container">
+        <div id="messages">
+            <!-- Display submitted messages here -->
+        </div>
+    </div>
+
+    <script>
+        // Dummy data for testing
+        var messages = [
+            { rollNumber: "12345", message: "Hello, teacher! I have a question." },
+            { rollNumber: "56789", message: "Could you please explain the last topic?" },
+            { rollNumber: "23456", message: "I won't be able to attend class tomorrow." }
+            // Add more messages as needed
+        ];
+
+        // Function to display messages in the #messages container
+        function displayMessages() {
+            var messagesContainer = document.getElementById("messages");
+
+            messages.forEach(function (msg) {
+                var messageRow = document.createElement("div");
+                messageRow.className = "message-row";
+
+                var messageContent = document.createElement("p");
+                messageContent.textContent = "Roll Number: " + msg.rollNumber + " - " + msg.message;
+
+                messageRow.appendChild(messageContent);
+                messagesContainer.appendChild(messageRow);
+            });
+        }
+
+        // Call the function to display messages when the page loads
+        window.onload = function () {
+            displayMessages();
+        };
+    </script>
+</body>
+
+</html>

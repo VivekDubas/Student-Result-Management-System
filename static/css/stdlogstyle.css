@@ -1,0 +1,50 @@
+body {
+    background-image: url(https://media.istockphoto.com/id/1410950079/photo/modern-style-classroom-in-the-morning-3d-render.webp?b=1&s=170667a&w=0&k=20&c=D3KekIGN_W76ScIe_vKZURixg0hXdXnbPfhKywcItro=);
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    max-width: 410px;
+    margin: 0 auto;
+    padding: 28px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+    font-size: 24px;
+    font-style: italic;
+}
+
+.form-group {
+    margin: 15px 0;
+}
+
+.form-group label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Messages</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/msgstdstyle.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Student Messages</h1>
+    </header>
+
+    <div class="container">
+        <form id="messageForm">
+            <label for="rollNumber">Roll Number:</label>
+            <input type="text" id="rollNumber" name="rollNumber" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="button" onclick="submitMessage()">Submit Message</button>
+        </form>
+
+        <div id="messages">
+            <!-- Display submitted messages here -->
+        </div>
+    </div>
+
+    <script>
+        function submitMessage() {
+            var rollNumber = document.getElementById("rollNumber").value;
+            var message = document.getElementById("message").value;
+
+            if (rollNumber.trim() !== "" && message.trim() !== "") {
+                var messagesContainer = document.getElementById("messages");
+                var newMessageElement = document.createElement("p");
+                newMessageElement.textContent = message;
+                messagesContainer.appendChild(newMessageElement);
+
+                // Optionally, you can clear the input fields after submitting
+                document.getElementById("rollNumber").value = "";
+                document.getElementById("message").value = "";
+            } else {
+                alert("Please enter both Roll Number and Message before submitting.");
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Result Management System - Admin Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/admlogstyle.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to the Student Result Management System</h1>
+
+        <!-- Admin Login Form -->
+        <div class="form-group">
+            <h2>Admin Login</h2>
+            <form action="{{ url_for('admin_login') }}" method="post">
+                <label for="admin_id">Admin ID:</label>
+                <input type="text" name="admin_id" required>
+                <br><br>
+                <label for="admin_password">Password:</label>
+                <input type="password" name="admin_password" required>
+                <br><br>
+                <input type="submit" value="Admin Login">
+            </form>
+            
+        </div>
+    </div>
+    <script>
+        document.querySelector("form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent page reload
+    
+            var admin_id = document.querySelector("input[name='admin_id']").value;
+            var password = document.querySelector("input[name='admin_password']").value;
+    
+            fetch("http://127.0.0.1:5000/admin_login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ admin_id: admin_id, admin_password: password }) // Corrected
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    window.location.href = "/admin_dashboard"; // Redirect to Admin Dashboard
+                } else {
+                    alert("Invalid credentials! Try again.");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    </script>
+    
+
+
+</body>
+
+</html>

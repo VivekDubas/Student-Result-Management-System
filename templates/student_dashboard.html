@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stddshstyle.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome, {{ student_data.name }}</h1>
+
+<h2>Student Details</h2>
+<table>
+    <tr>
+        <th>Full Name</th>
+        <td>{{ student_data.name }}</td>
+    </tr>
+    <tr>
+        <th>Father's Name</th>
+        <td>{{ student_data.father_name }}</td>
+    </tr>
+    <tr>
+        <th>Mother's Name</th>
+        <td>{{ student_data.mother_name }}</td>
+    </tr>
+    <tr>
+        <th>Class</th>
+        <td>{{ student_data.class }}</td>
+    </tr>
+    <tr>
+        <th>Section</th>
+        <td>{{ student_data.section }}</td>
+    </tr>
+</table>
+
+
+        <h2>Student Marks</h2>
+        <table>
+            <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+            </tr>
+            <tr>
+                <td>Subject 1</td>
+                <td>[Marks]</td>
+            </tr>
+            <tr>
+                <td>Subject 2</td>
+                <td>[Marks]</td>
+            </tr>
+            <tr>
+                <td>Subject 3</td>
+                <td>[Marks]</td>
+            </tr>
+            <tr>
+                <td>Subject 4</td>
+                <td>[Marks]</td>
+            </tr>
+            <tr>
+                <td>Subject 5</td>
+                <td>[Marks]</td>
+            </tr>
+            <tr>
+                <td>Subject 6</td>
+                <td>[Marks]</td>
+            </tr>
+            <!-- Add more subjects and marks as needed -->
+        </table>
+    </div>
+</body>
+
+</html>
